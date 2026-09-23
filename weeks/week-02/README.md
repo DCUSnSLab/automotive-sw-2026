@@ -120,11 +120,13 @@ Gazebo 창에 시험장 맵과 차량이 보이면 성공 (출발선 위에서 �
 
 ![정상 기동 로그](img/launch_lines.png)
 
-화면이 검거나 Gazebo가 죽으면:
+화면이 검거나 Gazebo가 죽으면 Ctrl+C 로 끄고, 소프트웨어 렌더링으로 다시 실행:
 
 ```bash
-echo "export LIBGL_ALWAYS_SOFTWARE=1" >> ~/.bashrc && source ~/.bashrc
+ros2 launch ssc_class_gazebo license_course.launch.py software_gl:=true
 ```
+
+> `~/.bashrc` 에 `LIBGL_ALWAYS_SOFTWARE=1` 을 등록하지 마세요 — 카메라가 30 Hz → 약 2 Hz 로 느려져 이후 주차 실습에 지장을 줍니다. 위 옵션은 그 실행에만 적용됩니다.
 
 **새 터미널**에서 키보드 조종:
 
@@ -248,6 +250,8 @@ sudo apt install -y ros-humble-gazebo-ros-pkgs \
                     ros-humble-teleop-twist-keyboard \
                     ros-humble-ackermann-msgs \
                     terminator git x11-apps
+echo 'export GAZEBO_MODEL_DATABASE_URI=""' >> ~/.bashrc   # 첫 실행 2분 멈춤 방지
+source ~/.bashrc
 ```
 
 ### A-4. (선택) 분할 터미널 Terminator
@@ -265,13 +269,13 @@ terminator &
 | 증상 | 해결 |
 |---|---|
 | apt가 매우 느림 | 네트워크 확인, 또는 미러 변경(`mirror.kakao.com`) |
-| Gazebo 검은 화면·충돌 | `LIBGL_ALWAYS_SOFTWARE=1` (§4 참조) |
+| Gazebo 검은 화면·충돌 | `license_course.launch.py software_gl:=true` 로 실행 (§4 참조, `~/.bashrc` 등록 금지) |
 | GUI 창이 안 열림 | Windows 21H2+ 확인 → `wsl --update` → `wsl --shutdown` 후 재실행 |
 | `ros2: command not found` | `source ~/.bashrc` 또는 새 터미널 |
 | colcon 빌드 오류 | `cd ~/ssc_ws && rm -rf build install log` 후 재빌드 |
 | `Service /spawn_entity unavailable` 뒤 spawn 실패 | 이전 gzserver 잔존 → `pkill -f gzserver` 후 재실행 |
 | gzserver 가 exit code -6 으로 죽음 | `source /usr/share/gazebo/setup.sh` 를 `~/.bashrc` 에 추가 (launch 도 보강함) |
-| 옆 사람 키보드에 내 차가 움직임 | 같은 네트워크·같은 도메인 → `export ROS_DOMAIN_ID=<내 번호>` `ROS_LOCALHOST_ONLY=1` |
+| 옆 사람 키보드에 내 차가 움직임 | 같은 네트워크·같은 도메인 → `echo "export ROS_DOMAIN_ID=<내 번호 1~100>" >> ~/.bashrc && source ~/.bashrc` 후 런치·텔레옵 재실행 (`ROS_LOCALHOST_ONLY=1` 은 쓰지 말 것 — WSL 환경에 따라 내 노드끼리도 통신이 끊김) |
 | 키를 눌러도 안 움직임 | 텔레옵 터미널 포커스 확인, `j`/`l` 만 누르면 조향만 됨 → `i`/`u`/`o` |
 | 차가 멈추지 않음 | 마지막 `/cmd_vel` 명령 유지 → `k` 또는 `Twist "{}"` 한 번 발행 |
-| 첫 월드 로딩이 수 분 | 온라인 모델 DB 조회 → `export GAZEBO_MODEL_DATABASE_URI=""` |
+| 첫 월드 로딩이 수 분 | 설치 스크립트·launch 가 온라인 모델 DB 조회를 이미 꺼 둠 → 새 터미널에서 다시 실행 (그래도 느리면 조교에게) |

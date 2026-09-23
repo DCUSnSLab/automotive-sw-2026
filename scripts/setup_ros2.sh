@@ -29,6 +29,9 @@ sudo apt install -y ros-humble-gazebo-ros-pkgs \
 echo "== [5/5] .bashrc 등록 =="
 grep -qxF "source /opt/ros/humble/setup.bash" ~/.bashrc \
   || echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+# Gazebo 온라인 모델 DB 조회 끄기 — 빈 월드 첫 실행이 약 2분 멈추는 것을 막는다 (학생이 따로 설정하지 않도록)
+grep -qF "GAZEBO_MODEL_DATABASE_URI" ~/.bashrc \
+  || echo 'export GAZEBO_MODEL_DATABASE_URI=""' >> ~/.bashrc
 
 echo ""
 echo "설치 완료. 새 터미널을 열거나 'source ~/.bashrc' 실행 후:"
