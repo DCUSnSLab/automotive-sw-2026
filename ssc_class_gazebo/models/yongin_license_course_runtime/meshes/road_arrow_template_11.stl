@@ -1,0 +1,58 @@
+solid road_arrow_template_11
+  facet normal -0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.00400259 -1.01963428 0.00000000
+      vertex -0.00985714 -1.39859459 0.00000000
+      vertex 0.33915582 -0.83927821 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 0.33915582 -0.83927821 0.00000000
+      vertex 0.00758701 -0.26944756 0.00000000
+      vertex 0.00113506 -0.68707728 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.00400259 -1.01963428 0.00000000
+      vertex 0.33915582 -0.83927821 0.00000000
+      vertex 0.00113506 -0.68707728 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -0.00000000 1.00000000
+    outer loop
+      vertex -0.00400259 -1.01963428 0.00000000
+      vertex 0.00113506 -0.68707728 0.00000000
+      vertex -0.19875111 -0.60663195 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -0.00000000 1.00000000
+    outer loop
+      vertex -0.19875111 -0.60663195 0.00000000
+      vertex -0.16780568 1.39644394 0.00000000
+      vertex -0.30701558 1.39859459 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.19875111 -0.60663195 0.00000000
+      vertex -0.30701558 1.39859459 0.00000000
+      vertex -0.33915582 -0.68182014 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.00400259 -1.01963428 0.00000000
+      vertex -0.19875111 -0.60663195 0.00000000
+      vertex -0.33915582 -0.68182014 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.33915582 -0.68182014 0.00000000
+      vertex -0.23410742 -0.89230773 0.00000000
+      vertex -0.00400259 -1.01963428 0.00000000
+    endloop
+  endfacet
+endsolid road_arrow_template_11

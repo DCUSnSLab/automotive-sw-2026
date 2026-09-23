@@ -1,0 +1,6 @@
+newmtl road_texture
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.01 0.01 0.01
+illum 2
+map_Kd asphalt_texture.jpg

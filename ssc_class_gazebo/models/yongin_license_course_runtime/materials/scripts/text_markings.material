@@ -1,0 +1,174 @@
+
+material Yongin/TextMarking_00_e105
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      scene_blend alpha_blend
+      alpha_rejection greater 128
+      depth_write off
+      depth_bias 20 0
+      cull_hardware none
+      cull_software none
+      diffuse 1 1 1 1
+      ambient 1 1 1 1
+      texture_unit
+      {
+        texture text_marking_00_e105.png
+        filtering trilinear
+      }
+    }
+  }
+}
+
+
+material Yongin/TextMarking_01_e106
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      scene_blend alpha_blend
+      alpha_rejection greater 128
+      depth_write off
+      depth_bias 20 0
+      cull_hardware none
+      cull_software none
+      diffuse 1 1 1 1
+      ambient 1 1 1 1
+      texture_unit
+      {
+        texture text_marking_01_e106.png
+        filtering trilinear
+      }
+    }
+  }
+}
+
+
+material Yongin/TextMarking_02_e107
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      scene_blend alpha_blend
+      alpha_rejection greater 128
+      depth_write off
+      depth_bias 20 0
+      cull_hardware none
+      cull_software none
+      diffuse 1 1 1 1
+      ambient 1 1 1 1
+      texture_unit
+      {
+        texture text_marking_02_e107.png
+        filtering trilinear
+      }
+    }
+  }
+}
+
+
+material Yongin/TextMarking_03_e108
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      scene_blend alpha_blend
+      alpha_rejection greater 128
+      depth_write off
+      depth_bias 20 0
+      cull_hardware none
+      cull_software none
+      diffuse 1 1 1 1
+      ambient 1 1 1 1
+      texture_unit
+      {
+        texture text_marking_03_e108.png
+        filtering trilinear
+      }
+    }
+  }
+}
+
+
+material Yongin/TextMarking_04_e109
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      scene_blend alpha_blend
+      alpha_rejection greater 128
+      depth_write off
+      depth_bias 20 0
+      cull_hardware none
+      cull_software none
+      diffuse 1 1 1 1
+      ambient 1 1 1 1
+      texture_unit
+      {
+        texture text_marking_04_e109.png
+        filtering trilinear
+      }
+    }
+  }
+}
+
+
+material Yongin/TextMarking_05_e111
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      scene_blend alpha_blend
+      alpha_rejection greater 128
+      depth_write off
+      depth_bias 20 0
+      cull_hardware none
+      cull_software none
+      diffuse 1 1 1 1
+      ambient 1 1 1 1
+      texture_unit
+      {
+        texture text_marking_05_e111.png
+        filtering trilinear
+      }
+    }
+  }
+}
+
+
+material Yongin/TextMarking_06_e120
+{
+  technique
+  {
+    pass
+    {
+      lighting off
+      scene_blend alpha_blend
+      alpha_rejection greater 128
+      depth_write off
+      depth_bias 20 0
+      cull_hardware none
+      cull_software none
+      diffuse 1 1 1 1
+      ambient 1 1 1 1
+      texture_unit
+      {
+        texture text_marking_06_e120.png
+        filtering trilinear
+      }
+    }
+  }
+}

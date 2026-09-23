@@ -1,0 +1,94 @@
+material LCS5004/Off
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 0 0 0 1
+      diffuse 0 0 0 1
+      specular 0 0 0 1
+      emissive 0 0 0 1
+    }
+  }
+}
+
+material LCS5004/ArrowDown
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 0.04 0.12 0.08 1
+      diffuse 0.12 0.65 0.30 1
+      emissive 0.03 0.90 0.34 1
+      texture_unit
+      {
+        texture arrow_down.png
+        filtering anisotropic
+        max_anisotropy 8
+      }
+    }
+  }
+}
+
+material LCS5004/RedX
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 0.15 0.03 0.03 1
+      diffuse 0.72 0.08 0.06 1
+      emissive 0.95 0.04 0.03 1
+      texture_unit
+      {
+        texture red_x.png
+        filtering anisotropic
+        max_anisotropy 8
+      }
+    }
+  }
+}
+
+material LCS5004/Speed60
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 0.12 0.04 0.02 1
+      diffuse 0.70 0.32 0.06 1
+      emissive 0.90 0.42 0.04 1
+      texture_unit
+      {
+        texture speed_60.png
+        filtering anisotropic
+        max_anisotropy 8
+      }
+    }
+  }
+}
+
+material LCS5004/VMS
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      ambient 0.12 0.12 0.12 1
+      diffuse 0.90 0.90 0.90 1
+      emissive 0.72 0.72 0.72 1
+      texture_unit
+      {
+        texture vms_roadwork.png
+        filtering anisotropic
+        max_anisotropy 8
+      }
+    }
+  }
+}

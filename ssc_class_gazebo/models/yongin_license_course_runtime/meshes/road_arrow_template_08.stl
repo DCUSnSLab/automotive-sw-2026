@@ -1,0 +1,37 @@
+solid road_arrow_template_08
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.34352860 0.28112845 0.00000000
+      vertex -1.48149280 -0.22557866 0.00000000
+      vertex -0.23442266 -0.33257248 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.34352860 0.28112845 0.00000000
+      vertex -0.23442266 -0.33257248 0.00000000
+      vertex -0.26523877 -0.09340916 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.26523877 -0.09340916 0.00000000
+      vertex 1.48149280 0.19316197 0.00000000
+      vertex 1.45862093 0.33257248 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -0.00000000 1.00000000
+    outer loop
+      vertex -0.26523877 -0.09340916 0.00000000
+      vertex 1.45862093 0.33257248 0.00000000
+      vertex -0.28945605 0.05420196 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.26523877 -0.09340916 0.00000000
+      vertex -0.28945605 0.05420196 0.00000000
+      vertex -0.34352860 0.28112845 0.00000000
+    endloop
+  endfacet
+endsolid road_arrow_template_08

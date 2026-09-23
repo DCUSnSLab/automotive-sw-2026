@@ -1,0 +1,58 @@
+solid mark_diamond_00
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.00000000 2.36339085 0.00000000
+      vertex 0.55191598 -0.00000000 0.00000000
+      vertex 0.83082971 -0.00000000 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.00000000 2.36339085 0.00000000
+      vertex -0.00000000 1.70322581 0.00000000
+      vertex 0.55191598 -0.00000000 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 0.83082971 -0.00000000 0.00000000
+      vertex -0.00000000 -1.70322581 0.00000000
+      vertex -0.00000000 -2.36339085 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 0.83082971 -0.00000000 0.00000000
+      vertex 0.55191598 -0.00000000 0.00000000
+      vertex -0.00000000 -1.70322581 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.00000000 -2.36339085 0.00000000
+      vertex -0.55191598 0.00000000 0.00000000
+      vertex -0.83082971 0.00000000 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.00000000 -2.36339085 0.00000000
+      vertex -0.00000000 -1.70322581 0.00000000
+      vertex -0.55191598 0.00000000 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.83082971 0.00000000 0.00000000
+      vertex -0.00000000 1.70322581 0.00000000
+      vertex -0.00000000 2.36339085 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -0.83082971 0.00000000 0.00000000
+      vertex -0.55191598 0.00000000 0.00000000
+      vertex -0.00000000 1.70322581 0.00000000
+    endloop
+  endfacet
+endsolid mark_diamond_00

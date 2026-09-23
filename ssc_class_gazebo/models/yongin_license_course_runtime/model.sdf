@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="yongin_license_course_runtime">
+    <static>true</static>
+  </model>
+</sdf>

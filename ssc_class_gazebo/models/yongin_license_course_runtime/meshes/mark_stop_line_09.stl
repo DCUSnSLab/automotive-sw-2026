@@ -1,0 +1,16 @@
+solid mark_stop_line_09
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -1.86346587 0.31267817 0.00000000
+      vertex -1.86346587 -0.31267817 0.00000000
+      vertex 1.86346587 -0.31267817 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 1.86346587 -0.31267817 0.00000000
+      vertex 1.86346587 0.31267817 0.00000000
+      vertex -1.86346587 0.31267817 0.00000000
+    endloop
+  endfacet
+endsolid mark_stop_line_09

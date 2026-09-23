@@ -1,0 +1,30 @@
+solid course_railroad_grooves
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -3.70172543 0.80174044 0.00000000
+      vertex -3.70172543 0.63333833 0.00000000
+      vertex 3.70172543 0.63333833 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 3.70172543 0.63333833 0.00000000
+      vertex 3.70172543 0.80174044 0.00000000
+      vertex -3.70172543 0.80174044 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -3.70172543 -0.63333833 0.00000000
+      vertex -3.70172543 -0.80174044 0.00000000
+      vertex 3.70172543 -0.80174044 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -0.00000000 1.00000000
+    outer loop
+      vertex 3.70172543 -0.80174044 0.00000000
+      vertex 3.70172543 -0.63333833 0.00000000
+      vertex -3.70172543 -0.63333833 0.00000000
+    endloop
+  endfacet
+endsolid course_railroad_grooves

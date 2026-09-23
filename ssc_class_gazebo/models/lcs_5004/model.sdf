@@ -1,0 +1,227 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="lcs_5004">
+    <!-- Keep the deployed vehicle out of physics while allowing Gazebo's
+         translate / rotate manipulators to select and reposition the model. -->
+    <static>false</static>
+    <link name="vehicle">
+      <kinematic>true</kinematic>
+      <gravity>false</gravity>
+      <!-- 4.5 t cab-over truck: official overall width/length are preserved. -->
+      <collision name="chassis_collision">
+        <pose>-0.35 0 0.70 0 0 0</pose>
+        <geometry><box><size>6.70 2.24 0.30</size></box></geometry>
+      </collision>
+      <visual name="chassis_visual">
+        <pose>-0.35 0 0.70 0 0 0</pose>
+        <geometry><box><size>6.70 2.24 0.30</size></box></geometry>
+        <material><ambient>0.10 0.11 0.12 1</ambient><diffuse>0.16 0.17 0.18 1</diffuse></material>
+      </visual>
+
+      <collision name="cab_collision">
+        <pose>2.40 0 1.80 0 0 0</pose>
+        <geometry><box><size>2.10 2.12 2.15</size></box></geometry>
+      </collision>
+      <visual name="cab_visual">
+        <pose>2.40 0 1.80 0 0 0</pose>
+        <geometry><box><size>2.10 2.12 2.15</size></box></geometry>
+        <material><ambient>0.72 0.73 0.71 1</ambient><diffuse>0.96 0.97 0.95 1</diffuse><specular>0.20 0.20 0.20 1</specular></material>
+      </visual>
+      <visual name="front_windshield">
+        <pose>1.94 0 2.30 0 0 0</pose>
+        <geometry><box><size>0.025 1.92 0.78</size></box></geometry>
+        <material><ambient>0.03 0.07 0.09 1</ambient><diffuse>0.08 0.18 0.23 1</diffuse><specular>0.60 0.60 0.60 1</specular></material>
+      </visual>
+      <visual name="left_window">
+        <pose>2.54 -1.071 2.30 0 0 0</pose>
+        <geometry><box><size>1.20 0.025 0.76</size></box></geometry>
+        <material><ambient>0.03 0.07 0.09 1</ambient><diffuse>0.08 0.18 0.23 1</diffuse><specular>0.60 0.60 0.60 1</specular></material>
+      </visual>
+      <visual name="front_bumper">
+        <pose>3.48 0 0.93 0 0 0</pose>
+        <geometry><box><size>0.12 2.18 0.25</size></box></geometry>
+        <material><ambient>0.10 0.10 0.10 1</ambient><diffuse>0.18 0.18 0.18 1</diffuse></material>
+      </visual>
+
+      <collision name="flatbed_collision">
+        <pose>-1.36 0 1.25 0 0 0</pose>
+        <geometry><box><size>4.70 2.24 0.32</size></box></geometry>
+      </collision>
+      <visual name="flatbed_visual">
+        <pose>-1.36 0 1.25 0 0 0</pose>
+        <geometry><box><size>4.70 2.24 0.32</size></box></geometry>
+        <material><ambient>0.50 0.52 0.52 1</ambient><diffuse>0.72 0.74 0.74 1</diffuse><specular>0.45 0.45 0.45 1</specular></material>
+      </visual>
+      <visual name="flatbed_rail_left">
+        <pose>-1.36 -1.09 1.57 0 0 0</pose>
+        <geometry><box><size>4.70 0.09 0.38</size></box></geometry>
+        <material><ambient>0.55 0.57 0.57 1</ambient><diffuse>0.78 0.80 0.80 1</diffuse></material>
+      </visual>
+      <visual name="flatbed_rail_right">
+        <pose>-1.36 1.09 1.57 0 0 0</pose>
+        <geometry><box><size>4.70 0.09 0.38</size></box></geometry>
+        <material><ambient>0.55 0.57 0.57 1</ambient><diffuse>0.78 0.80 0.80 1</diffuse></material>
+      </visual>
+
+      <!-- Wheels; cylinder axes are aligned with vehicle Y. -->
+      <visual name="wheel_front_left">
+        <pose>2.25 -1.10 0.55 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>0.24</length></cylinder></geometry>
+        <material><ambient>0.02 0.02 0.02 1</ambient><diffuse>0.04 0.04 0.04 1</diffuse></material>
+      </visual>
+      <visual name="wheel_front_right">
+        <pose>2.25 1.10 0.55 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>0.24</length></cylinder></geometry>
+        <material><ambient>0.02 0.02 0.02 1</ambient><diffuse>0.04 0.04 0.04 1</diffuse></material>
+      </visual>
+      <visual name="wheel_rear_left">
+        <pose>-1.80 -1.10 0.55 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>0.24</length></cylinder></geometry>
+        <material><ambient>0.02 0.02 0.02 1</ambient><diffuse>0.04 0.04 0.04 1</diffuse></material>
+      </visual>
+      <visual name="wheel_rear_right">
+        <pose>-1.80 1.10 0.55 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.48</radius><length>0.24</length></cylinder></geometry>
+        <material><ambient>0.02 0.02 0.02 1</ambient><diffuse>0.04 0.04 0.04 1</diffuse></material>
+      </visual>
+      <visual name="hub_front_left">
+        <pose>2.25 -1.235 0.55 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.18</radius><length>0.03</length></cylinder></geometry>
+        <material><ambient>0.45 0.45 0.45 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
+      </visual>
+      <visual name="hub_rear_left">
+        <pose>-1.80 -1.235 0.55 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.18</radius><length>0.03</length></cylinder></geometry>
+        <material><ambient>0.45 0.45 0.45 1</ambient><diffuse>0.65 0.65 0.65 1</diffuse></material>
+      </visual>
+
+      <!-- Rear impact attenuator and warning chevrons. -->
+      <collision name="attenuator_collision">
+        <pose>-3.92 0 0.66 0 0 0</pose>
+        <geometry><box><size>0.66 2.08 0.78</size></box></geometry>
+      </collision>
+      <visual name="attenuator_orange">
+        <pose>-3.92 0 0.66 0 0 0</pose>
+        <geometry><box><size>0.66 2.08 0.78</size></box></geometry>
+        <material><ambient>0.65 0.24 0.02 1</ambient><diffuse>1.00 0.43 0.04 1</diffuse></material>
+      </visual>
+      <visual name="rear_warning_panel">
+        <pose>-3.47 0 1.72 0 0 0</pose>
+        <geometry><box><size>0.12 1.72 0.64</size></box></geometry>
+        <material><ambient>0.75 0.65 0.08 1</ambient><diffuse>0.98 0.84 0.10 1</diffuse></material>
+      </visual>
+
+      <!-- Four deployed outriggers. -->
+      <visual name="outrigger_fl_arm">
+        <pose>0.30 -1.58 0.69 0 0 0</pose>
+        <geometry><box><size>0.18 1.05 0.16</size></box></geometry>
+        <material><ambient>0.70 0.08 0.03 1</ambient><diffuse>0.95 0.12 0.04 1</diffuse></material>
+      </visual>
+      <visual name="outrigger_fr_arm">
+        <pose>0.30 1.58 0.69 0 0 0</pose>
+        <geometry><box><size>0.18 1.05 0.16</size></box></geometry>
+        <material><ambient>0.70 0.08 0.03 1</ambient><diffuse>0.95 0.12 0.04 1</diffuse></material>
+      </visual>
+      <visual name="outrigger_rl_arm">
+        <pose>-2.75 -1.58 0.69 0 0 0</pose>
+        <geometry><box><size>0.18 1.05 0.16</size></box></geometry>
+        <material><ambient>0.70 0.08 0.03 1</ambient><diffuse>0.95 0.12 0.04 1</diffuse></material>
+      </visual>
+      <visual name="outrigger_rr_arm">
+        <pose>-2.75 1.58 0.69 0 0 0</pose>
+        <geometry><box><size>0.18 1.05 0.16</size></box></geometry>
+        <material><ambient>0.70 0.08 0.03 1</ambient><diffuse>0.95 0.12 0.04 1</diffuse></material>
+      </visual>
+      <visual name="outrigger_fl_leg">
+        <pose>0.30 -2.06 0.34 0 0 0</pose>
+        <geometry><box><size>0.20 0.20 0.72</size></box></geometry>
+        <material><ambient>0.12 0.12 0.12 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material>
+      </visual>
+      <visual name="outrigger_fr_leg">
+        <pose>0.30 2.06 0.34 0 0 0</pose>
+        <geometry><box><size>0.20 0.20 0.72</size></box></geometry>
+        <material><ambient>0.12 0.12 0.12 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material>
+      </visual>
+      <visual name="outrigger_rl_leg">
+        <pose>-2.75 -2.06 0.34 0 0 0</pose>
+        <geometry><box><size>0.20 0.20 0.72</size></box></geometry>
+        <material><ambient>0.12 0.12 0.12 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material>
+      </visual>
+      <visual name="outrigger_rr_leg">
+        <pose>-2.75 2.06 0.34 0 0 0</pose>
+        <geometry><box><size>0.20 0.20 0.72</size></box></geometry>
+        <material><ambient>0.12 0.12 0.12 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material>
+      </visual>
+
+      <!-- Vehicle frame: +X forward, +Y left, +Z up. The boom deploys to vehicle-left (+Y). -->
+      <collision name="mast_collision">
+        <pose>-0.15 0.15 3.70 0 0 0</pose>
+        <geometry><box><size>0.38 0.42 4.60</size></box></geometry>
+      </collision>
+      <visual name="mast_visual">
+        <pose>-0.15 0.15 3.70 0 0 0</pose>
+        <geometry><box><size>0.38 0.42 4.60</size></box></geometry>
+        <material><ambient>0.62 0.63 0.62 1</ambient><diffuse>0.88 0.89 0.88 1</diffuse></material>
+      </visual>
+      <visual name="lift_arm_lower">
+        <pose>-1.35 0.10 4.25 0 -0.75 0</pose>
+        <geometry><box><size>3.80 0.30 0.30</size></box></geometry>
+        <material><ambient>0.56 0.57 0.57 1</ambient><diffuse>0.82 0.83 0.83 1</diffuse></material>
+      </visual>
+      <visual name="lift_arm_upper">
+        <pose>-0.40 0.10 5.55 0 -1.00 0</pose>
+        <geometry><box><size>2.00 0.26 0.28</size></box></geometry>
+        <material><ambient>0.66 0.67 0.67 1</ambient><diffuse>0.91 0.92 0.92 1</diffuse></material>
+      </visual>
+      <visual name="mast_pivot_lower">
+        <pose>-2.73 0.10 2.96 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.22</radius><length>0.40</length></cylinder></geometry>
+        <material><ambient>0.20 0.20 0.20 1</ambient><diffuse>0.32 0.32 0.32 1</diffuse></material>
+      </visual>
+      <visual name="mast_pivot_upper">
+        <pose>0.14 0.10 6.38 1.570796 0 0</pose>
+        <geometry><cylinder><radius>0.20</radius><length>0.38</length></cylinder></geometry>
+        <material><ambient>0.20 0.20 0.20 1</ambient><diffuse>0.32 0.32 0.32 1</diffuse></material>
+      </visual>
+
+      <collision name="boom_collision">
+        <pose>-0.12 9.05 6.38 0 0 0</pose>
+        <geometry><box><size>0.28 17.20 0.28</size></box></geometry>
+      </collision>
+      <visual name="boom_visual">
+        <pose>-0.12 9.05 6.38 0 0 0</pose>
+        <geometry><box><size>0.28 17.20 0.28</size></box></geometry>
+        <material><ambient>0.58 0.59 0.59 1</ambient><diffuse>0.86 0.87 0.87 1</diffuse><specular>0.35 0.35 0.35 1</specular></material>
+      </visual>
+      <visual name="boom_inner_visual">
+        <pose>-0.29 6.25 6.38 0 0 0</pose>
+        <geometry><box><size>0.08 11.20 0.14</size></box></geometry>
+        <material><ambient>0.20 0.21 0.21 1</ambient><diffuse>0.33 0.34 0.34 1</diffuse></material>
+      </visual>
+
+      <!-- Five 700 mm indicators are centered on, and mounted in front of, the boom. -->
+      <!-- Mesh faces keep Gazebo from treating the vehicle as a plane. Each
+           indicator has one surface; its material selects the displayed signal. -->
+      <visual name="panel_1_housing"><pose>-0.42 17.15 6.38 0 0 0</pose><geometry><box><size>0.18 0.82 0.82</size></box></geometry><material><ambient>0.01 0.01 0.01 1</ambient><diffuse>0.02 0.02 0.02 1</diffuse></material></visual>
+      <visual name="panel_1_signal"><pose>-0.521 17.15 6.38 0 -1.570796 0</pose><geometry><mesh><uri>model://lcs_5004/meshes/signal_face.dae</uri><scale>0.70 0.70 1</scale></mesh></geometry><material><script><uri>model://lcs_5004/materials/scripts</uri><uri>model://lcs_5004/materials/textures</uri><name>LCS5004/ArrowDown</name></script></material></visual>
+      <visual name="panel_2_housing"><pose>-0.42 13.15 6.38 0 0 0</pose><geometry><box><size>0.18 0.82 0.82</size></box></geometry><material><ambient>0.01 0.01 0.01 1</ambient><diffuse>0.02 0.02 0.02 1</diffuse></material></visual>
+      <visual name="panel_2_signal"><pose>-0.521 13.15 6.38 0 -1.570796 0</pose><geometry><mesh><uri>model://lcs_5004/meshes/signal_face.dae</uri><scale>0.70 0.70 1</scale></mesh></geometry><material><script><uri>model://lcs_5004/materials/scripts</uri><uri>model://lcs_5004/materials/textures</uri><name>LCS5004/ArrowDown</name></script></material></visual>
+      <visual name="panel_3_housing"><pose>-0.42 9.15 6.38 0 0 0</pose><geometry><box><size>0.18 0.82 0.82</size></box></geometry><material><ambient>0.01 0.01 0.01 1</ambient><diffuse>0.02 0.02 0.02 1</diffuse></material></visual>
+      <visual name="panel_3_signal"><pose>-0.521 9.15 6.38 0 -1.570796 0</pose><geometry><mesh><uri>model://lcs_5004/meshes/signal_face.dae</uri><scale>0.70 0.70 1</scale></mesh></geometry><material><script><uri>model://lcs_5004/materials/scripts</uri><uri>model://lcs_5004/materials/textures</uri><name>LCS5004/ArrowDown</name></script></material></visual>
+      <visual name="panel_4_housing"><pose>-0.42 5.15 6.38 0 0 0</pose><geometry><box><size>0.18 0.82 0.82</size></box></geometry><material><ambient>0.01 0.01 0.01 1</ambient><diffuse>0.02 0.02 0.02 1</diffuse></material></visual>
+      <visual name="panel_4_signal"><pose>-0.521 5.15 6.38 0 -1.570796 0</pose><geometry><mesh><uri>model://lcs_5004/meshes/signal_face.dae</uri><scale>0.70 0.70 1</scale></mesh></geometry><material><script><uri>model://lcs_5004/materials/scripts</uri><uri>model://lcs_5004/materials/textures</uri><name>LCS5004/RedX</name></script></material></visual>
+      <visual name="panel_5_housing"><pose>-0.42 1.15 6.38 0 0 0</pose><geometry><box><size>0.18 0.82 0.82</size></box></geometry><material><ambient>0.01 0.01 0.01 1</ambient><diffuse>0.02 0.02 0.02 1</diffuse></material></visual>
+      <visual name="panel_5_signal"><pose>-0.521 1.15 6.38 0 -1.570796 0</pose><geometry><mesh><uri>model://lcs_5004/meshes/signal_face.dae</uri><scale>0.70 0.70 1</scale></mesh></geometry><material><script><uri>model://lcs_5004/materials/scripts</uri><uri>model://lcs_5004/materials/textures</uri><name>LCS5004/RedX</name></script></material></visual>
+
+      <!-- The speed panel is vehicle-side; the large VMS has its own rear support. -->
+      <visual name="speed_housing"><pose>-0.42 -0.55 6.38 0 0 0</pose><geometry><box><size>0.18 0.82 0.82</size></box></geometry><material><ambient>0.01 0.01 0.01 1</ambient><diffuse>0.02 0.02 0.02 1</diffuse></material></visual>
+      <visual name="speed_60"><pose>-0.521 -0.55 6.38 0 -1.570796 0</pose><geometry><mesh><uri>model://lcs_5004/meshes/signal_face.dae</uri><scale>0.70 0.70 1</scale></mesh></geometry><material><script><uri>model://lcs_5004/materials/scripts</uri><uri>model://lcs_5004/materials/textures</uri><name>LCS5004/Speed60</name></script></material></visual>
+      <visual name="vms_support_left"><pose>-3.45 0.82 2.02 0 0 0</pose><geometry><box><size>0.12 0.12 1.52</size></box></geometry><material><ambient>0.46 0.47 0.47 1</ambient><diffuse>0.68 0.69 0.69 1</diffuse></material></visual>
+      <visual name="vms_support_right"><pose>-3.45 -0.82 2.02 0 0 0</pose><geometry><box><size>0.12 0.12 1.52</size></box></geometry><material><ambient>0.46 0.47 0.47 1</ambient><diffuse>0.68 0.69 0.69 1</diffuse></material></visual>
+      <visual name="vms_support_cross"><pose>-3.45 0 2.55 0 0 0</pose><geometry><box><size>0.12 1.76 0.12</size></box></geometry><material><ambient>0.46 0.47 0.47 1</ambient><diffuse>0.68 0.69 0.69 1</diffuse></material></visual>
+      <collision name="vms_collision"><pose>-3.55 0 3.25 0 0 0</pose><geometry><box><size>0.18 2.16 1.82</size></box></geometry></collision>
+      <visual name="vms_housing"><pose>-3.55 0 3.25 0 0 0</pose><geometry><box><size>0.18 2.16 1.82</size></box></geometry><material><ambient>0.01 0.01 0.01 1</ambient><diffuse>0.02 0.02 0.02 1</diffuse></material></visual>
+      <visual name="vms_face"><pose>-3.651 0 3.25 0 -1.570796 0</pose><geometry><mesh><uri>model://lcs_5004/meshes/signal_face.dae</uri><scale>1.68 2.04 1</scale></mesh></geometry><material><script><uri>model://lcs_5004/materials/scripts</uri><uri>model://lcs_5004/materials/textures</uri><name>LCS5004/VMS</name></script></material></visual>
+    </link>
+  </model>
+</sdf>

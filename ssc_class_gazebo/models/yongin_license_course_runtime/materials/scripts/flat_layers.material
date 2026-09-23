@@ -1,0 +1,225 @@
+
+material Yongin/RoadSurface
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 1 0
+      cull_hardware none
+      cull_software none
+      ambient 1 1 1 1
+      diffuse 1 1 1 1
+      specular 0.02 0.02 0.02 1
+      texture_unit
+      {
+        texture asphalt_texture.jpg
+        filtering anisotropic anisotropic linear
+        max_anisotropy 8
+      }
+    }
+  }
+}
+
+
+material Yongin/Flat_066E39_02
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 2.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.02353 0.43137 0.22353 1
+      diffuse 0.02353 0.43137 0.22353 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_262826_12
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 12.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.14902 0.15686 0.14902 1
+      diffuse 0.14902 0.15686 0.14902 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_2F6ED8_30
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 30.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.18431 0.43137 0.84706 1
+      diffuse 0.18431 0.43137 0.84706 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_7B7E79_05
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 5.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.48235 0.49412 0.47451 1
+      diffuse 0.48235 0.49412 0.47451 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_858985_13
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 13.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.52157 0.53725 0.52157 1
+      diffuse 0.52157 0.53725 0.52157 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_8B6240_11
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 11.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.54510 0.38431 0.25098 1
+      diffuse 0.54510 0.38431 0.25098 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_E2E7D4_20
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 20.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.88627 0.90588 0.83137 1
+      diffuse 0.88627 0.90588 0.83137 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_E2E7D4_21
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 21.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.88627 0.90588 0.83137 1
+      diffuse 0.88627 0.90588 0.83137 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_F2D64B_10
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 10.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.94902 0.83922 0.29412 1
+      diffuse 0.94902 0.83922 0.29412 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}
+
+
+material Yongin/Flat_F2D64B_11
+{
+  technique
+  {
+    pass
+    {
+      lighting on
+      depth_check on
+      depth_write on
+      depth_bias 11.0 0
+      cull_hardware none
+      cull_software none
+      ambient 0.94902 0.83922 0.29412 1
+      diffuse 0.94902 0.83922 0.29412 1
+      specular 0.02 0.02 0.02 1
+    }
+  }
+}

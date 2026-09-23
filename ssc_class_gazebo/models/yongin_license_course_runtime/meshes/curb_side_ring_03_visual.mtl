@@ -1,0 +1,6 @@
+newmtl curb_marble
+Ka 1.0 1.0 1.0
+Kd 1.0 1.0 1.0
+Ks 0.01 0.01 0.01
+illum 2
+map_Kd curb_gray_marble.jpg

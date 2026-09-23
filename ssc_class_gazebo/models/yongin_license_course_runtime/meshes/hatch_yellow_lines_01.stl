@@ -1,0 +1,30 @@
+solid hatch_yellow_lines_01
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 0.60894244 -0.58795184 0.00000000
+      vertex 1.18935137 -0.30210648 0.00000000
+      vertex 1.01095202 -0.14147498 0.00000000
+    endloop
+  endfacet
+  facet normal -0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 0.60894244 -0.58795184 0.00000000
+      vertex 0.78734180 -0.74858334 0.00000000
+      vertex 1.18935137 -0.30210648 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -1.18935137 -0.71706377 0.00000000
+      vertex 0.42497548 0.71706377 0.00000000
+      vertex 0.24657612 0.87769527 0.00000000
+    endloop
+  endfacet
+  facet normal -0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -1.18935137 -0.71706377 0.00000000
+      vertex -1.01095202 -0.87769527 0.00000000
+      vertex 0.42497548 0.71706377 0.00000000
+    endloop
+  endfacet
+endsolid hatch_yellow_lines_01

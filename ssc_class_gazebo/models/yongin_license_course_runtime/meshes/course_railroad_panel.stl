@@ -1,0 +1,16 @@
+solid course_railroad_panel
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -3.70172543 1.46436609 0.00000000
+      vertex -3.70172543 -1.46436609 0.00000000
+      vertex 3.70172543 -1.46436609 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 -0.00000000 1.00000000
+    outer loop
+      vertex 3.70172543 -1.46436609 0.00000000
+      vertex 3.70172543 1.46436609 0.00000000
+      vertex -3.70172543 1.46436609 0.00000000
+    endloop
+  endfacet
+endsolid course_railroad_panel

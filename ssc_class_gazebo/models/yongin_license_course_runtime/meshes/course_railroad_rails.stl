@@ -1,0 +1,30 @@
+solid course_railroad_rails
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -3.70172543 0.75048762 0.00000000
+      vertex -3.70172543 0.68459115 0.00000000
+      vertex 3.70172543 0.68459115 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 3.70172543 0.68459115 0.00000000
+      vertex 3.70172543 0.75048762 0.00000000
+      vertex -3.70172543 0.75048762 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex -3.70172543 -0.68459115 0.00000000
+      vertex -3.70172543 -0.75048762 0.00000000
+      vertex 3.70172543 -0.75048762 0.00000000
+    endloop
+  endfacet
+  facet normal 0.00000000 0.00000000 1.00000000
+    outer loop
+      vertex 3.70172543 -0.75048762 0.00000000
+      vertex 3.70172543 -0.68459115 0.00000000
+      vertex -3.70172543 -0.68459115 0.00000000
+    endloop
+  endfacet
+endsolid course_railroad_rails
