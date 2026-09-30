@@ -238,6 +238,8 @@ ros2 topic hz /counter    # 약 2 Hz — create_timer(0.5, …)의 결과
 ros2 topic info /counter  # 타입 확인
 ```
 
+![rqt_graph — counter_pub이 /counter 토픽으로 counter_sub에 연결된 모습](img/rqt_graph_counter.png)
+
 ## [단계 6-b] DDS, 워크스페이스 확인
 
 시뮬레이터는 ssc_ws에서, 내 노드는 basics_ws에서. (시뮬레이터가 꺼져 있다면:)
@@ -344,6 +346,10 @@ Publisher와 Subscriber 코드를 수정하여 아래 조건에 맞는 결과를
 | 4 | Area of circle : 12.56 |
 | … | … |
 
+결과 예시:
+
+![과제 1 결과 — circle_pub(좌)과 circle_sub(우)의 터미널 출력](img/hw1_circle_result.png)
+
 ### 과제 2 — 노드 파이프라인
 
 Publisher1과 Publisher2, 그리고 MixSubscriber와 FinalSubscriber로 구성된 시스템을 만들고, 아래 조건에 맞는 결과를 출력하시오.
@@ -355,6 +361,10 @@ Publisher1과 Publisher2, 그리고 MixSubscriber와 FinalSubscriber로 구성�
 **FinalSubscriber (`final_sub.py`)** — MixSubscriber의 데이터를 수신하고, 그 값을 제곱한 결과를 터미널에 출력
 
 노드 관계: `pub1 / pub2 → mix_sub → final_sub` — **4개 노드가 연결된 rqt_graph 캡처 제출**
+
+결과 예시 (4분할 터미널 — pub1 / pub2 / mix_sub / final_sub):
+
+![과제 2 결과 — 네 노드의 터미널 출력](img/hw2_pipeline_result.png)
 
 ### 과제 3 — 시뮬레이션 사각 주행
 
@@ -372,3 +382,9 @@ Publisher1과 Publisher2, 그리고 MixSubscriber와 FinalSubscriber로 구성�
 - straight_stop.py처럼 경과 시간(또는 tick 횟수)을 세어 단계를 전환한다.
 - ROS에서 `angular.z`가 양수이면 반시계(좌회전), 음수이면 시계 방향(우회전)이다.
 - 시간을 0.1씩 더해 가며 비교하면 오차가 쌓일 수 있으므로, tick 횟수(정수)로 세는 방법도 고려해 볼 것.
+
+결과 예시:
+
+![과제 3 — 출발선의 차량과 ackermann_drive 로그](img/hw3_pattern_start.png)
+
+▶ [사각 주행 결과 영상 보기 (mp4)](img/hw3_pattern_drive.mp4)
