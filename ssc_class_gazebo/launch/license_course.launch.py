@@ -6,6 +6,7 @@
     ros2 launch ssc_class_gazebo license_course.launch.py x:=1.0 y:=-18.0 yaw:=1.57
     ros2 launch ssc_class_gazebo license_course.launch.py rviz:=true     # rviz2 함께
     ros2 launch ssc_class_gazebo license_course.launch.py software_gl:=true  # Gazebo 화면이 검거나 죽을 때만
+    ros2 launch ssc_class_gazebo license_course.launch.py lidar_viz:=true    # Gazebo 안에 LiDAR 광선을 그린다 (6주차)
 
 토픽 (차량 스폰 후):
     구독  /cmd_vel            geometry_msgs/Twist   (linear.x 속도, angular.z 조향)
@@ -15,11 +16,12 @@
     발행  /ground_truth/odom  nav_msgs/Odometry     (채점용 정답 위치)
 """
 import os
+import tempfile
 
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import (AppendEnvironmentVariable, DeclareLaunchArgument, ExecuteProcess,
-                            IncludeLaunchDescription, SetEnvironmentVariable, TimerAction)
+                            IncludeLaunchDescription, OpaqueFunction, SetEnvironmentVariable, TimerAction)
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
@@ -42,6 +44,8 @@ def generate_launch_description():
         DeclareLaunchArgument('rviz', default_value='false', description='rviz2 (LaserScan·Odometry·카메라) 함께 실행'),
         DeclareLaunchArgument('software_gl', default_value='false',
                               description='GPU 대신 소프트웨어 렌더링 (화면이 검을 때만; 카메라가 약 2 Hz로 느려짐)'),
+        DeclareLaunchArgument('lidar_viz', default_value='false',
+                              description='Gazebo 화면에 LiDAR 광선(파란 선)을 그린다 — 수업용, 렌더링 부하 약간 증가'),
     ]
 
     # 온라인 모델 DB 조회를 끈다 — 켜 두면 첫 실행 GUI가 약 2분간 스플래시에서 멈춘다 (모델은 모두 로컬)
@@ -65,19 +69,31 @@ def generate_launch_description():
         }.items(),
     )
 
-    spawn_car = Node(
-        package='gazebo_ros',
-        executable='spawn_entity.py',
-        output='screen',
-        arguments=[
-            '-entity', 'ssc_class_car',
-            '-file', car_sdf,
-            '-x', LaunchConfiguration('x'),
-            '-y', LaunchConfiguration('y'),
-            '-z', LaunchConfiguration('z'),
-            '-Y', LaunchConfiguration('yaw'),
-        ],
-    )
+    def make_spawn(context):
+        # lidar_viz:=true 면 model.sdf 의 LiDAR <visualize> 를 켠 사본을 만들어 스폰한다 (원본은 그대로)
+        sdf = car_sdf
+        if LaunchConfiguration('lidar_viz').perform(context).lower() in ('true', '1'):
+            with open(car_sdf, encoding='utf-8') as fh:
+                txt = fh.read()
+            head, sep, tail = txt.partition('<sensor name="roof_lidar"')
+            tail = tail.replace('<visualize>false</visualize>', '<visualize>true</visualize>', 1)
+            tmp = tempfile.NamedTemporaryFile('w', suffix='_ssc_class_car_viz.sdf', delete=False, encoding='utf-8')
+            tmp.write(head + sep + tail); tmp.close()
+            sdf = tmp.name
+        return [Node(
+            package='gazebo_ros',
+            executable='spawn_entity.py',
+            output='screen',
+            arguments=[
+                '-entity', 'ssc_class_car',
+                '-file', sdf,
+                '-x', LaunchConfiguration('x'),
+                '-y', LaunchConfiguration('y'),
+                '-z', LaunchConfiguration('z'),
+                '-Y', LaunchConfiguration('yaw'),
+            ],
+        )]
+    spawn_car = OpaqueFunction(function=make_spawn)
 
     # 센서 프레임 TF (model.sdf의 센서 부착 위치와 일치해야 함)
     lidar_tf = Node(
