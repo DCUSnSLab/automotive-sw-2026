@@ -14,8 +14,9 @@ model pose ∘ link pose ∘ visual pose 로 합성해 월드 좌표상 위치�
 
 사용:
     python3 merge_static_models.py <in.world> <out.world> [--merge-name NAME]
-                                   [--also-merge REGEX] [--keep REGEX]
+                                   [--also-merge REGEX] [--keep REGEX] [--drop REGEX ...]
 
+    --drop        실습에 불필요한 모델을 아예 제거(rip 버전). <include> 는 <name> 으로 매칭
     --also-merge  static=false 이지만 병합할 모델 이름 정규식 (기본: course_fixed_cone.*)
     --keep        병합하지 않고 남길 모델 이름 정규식 (여러 번 지정 가능)
 <include> 요소와 플러그인·조인트·센서가 있는 모델은 항상 그대로 둔다.
@@ -101,6 +102,22 @@ def is_mergeable(model, also_merge, keep):
     return also_merge is not None and also_merge.search(name) is not None
 
 
+def drop_models(world, drop):
+    """이름이 drop 정규식 중 하나에 맞는 <model>/<include> 를 월드에서 제거한다."""
+    removed = []
+    for el in list(world):
+        if el.tag == 'model':
+            name = el.get('name', '')
+        elif el.tag == 'include':
+            name = (el.findtext('name') or el.findtext('uri') or '').strip()
+        else:
+            continue
+        if any(d.search(name) for d in drop):
+            world.remove(el)
+            removed.append(name)
+    return removed
+
+
 def merge(world, merge_name, also_merge, keep):
     merged = ET.Element('model', {'name': merge_name})
     ET.SubElement(merged, 'static').text = 'true'
@@ -164,12 +181,17 @@ def main():
     ap.add_argument('--also-merge', default=r'^course_fixed_cone',
                     help="static=false 라도 병합할 모델 이름 정규식 ('' 이면 없음)")
     ap.add_argument('--keep', action='append', default=[], help='병합 제외 모델 이름 정규식')
+    ap.add_argument('--drop', action='append', default=[],
+                    help='월드에서 아예 제거할 모델/<include> 이름 정규식 (rip 버전용, 여러 번 지정 가능)')
     a = ap.parse_args()
 
     tree = ET.parse(a.src)
     world = tree.getroot().find('world')
     if world is None:
         sys.exit('no <world> element')
+    removed = drop_models(world, [re.compile(d) for d in a.drop])
+    if removed:
+        print(f'dropped {len(removed)} models: {", ".join(removed)}')
     also = re.compile(a.also_merge) if a.also_merge else None
     keep = [re.compile(k) for k in a.keep]
     n_models, n_vis, n_col = merge(world, a.merge_name, also, keep)

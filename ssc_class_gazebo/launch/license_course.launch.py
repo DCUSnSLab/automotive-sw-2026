@@ -17,7 +17,8 @@
     발행  /ground_truth/odom  nav_msgs/Odometry     (채점용 정답 위치)
 
 메모리 절감 (2026-10-13, 16 GB·iGPU 노트북 대상):
-    - worlds/classroom.world 는 정적 모델 215개를 모델 1개로 합친 결과물이다(tools/merge_static_models.py).
+    - worlds/classroom.world 는 원본에서 장식 모델 39개(쉘터·공사차량·철길·표지판·노면문자·녹지 등)를 지우고
+      남은 정적 모델 177개를 모델 1개로 합친 결과물이다(tools/merge_static_models.py, README 의 --drop 목록).
       편집용 원본은 worlds/classroom_authoring.world — 원본을 고친 뒤 스크립트로 다시 생성할 것.
     - 차량 메시는 DAE 75k 삼각형 → 바이너리 STL 15k 삼각형, 텍스처는 절반 해상도.
     - 카메라 해상도를 1280x720 → 800x450 으로 낮췄다(주기 30 Hz 는 그대로). 인자로 되돌릴 수 있다.
