@@ -35,7 +35,10 @@ def generate_launch_description():
     car_sdf = os.path.join(models_path, 'ssc_class_car', 'model.sdf')
 
     # 출발선 좌표 (2026-09-22 확정): 시험장 출발 표시 위, -x 방향을 보고 선다
+    # start:=right (7주차 이후 기본 사용): 도로 우측 포즈 — 조교 확정 좌표 (2026-10-13, automotive-sw-2026 week-07)
     args = [
+        DeclareLaunchArgument('start', default_value='left',
+                              description="출발 프리셋: left(기존, 왼쪽 연석 2.05 m) / right(도로 우측) — right면 x·y·yaw 인자 무시"),
         DeclareLaunchArgument('x', default_value='10.5379', description='spawn x [m]'),
         DeclareLaunchArgument('y', default_value='47.6657', description='spawn y [m]'),
         DeclareLaunchArgument('z', default_value='0.15', description='spawn z [m]'),
@@ -80,6 +83,13 @@ def generate_launch_description():
             tmp = tempfile.NamedTemporaryFile('w', suffix='_ssc_class_car_viz.sdf', delete=False, encoding='utf-8')
             tmp.write(head + sep + tail); tmp.close()
             sdf = tmp.name
+        # start:=right — 도로 우측 포즈. 조교 좌표(11.0967, 50.8642)를 연석 쪽으로 0.38 m 보정 →
+        # 오른쪽 연석 2.05 m (실측 2026-10-13). 2.43 m 에서는 초기 오차가 커서 P 단독 주행이 즉시 전방 정지에 걸림.
+        sx = LaunchConfiguration('x').perform(context)
+        sy = LaunchConfiguration('y').perform(context)
+        syaw = LaunchConfiguration('yaw').perform(context)
+        if LaunchConfiguration('start').perform(context).lower() == 'right':
+            sx, sy, syaw = '11.0305', '51.2384', '-2.9665'
         return [Node(
             package='gazebo_ros',
             executable='spawn_entity.py',
@@ -87,10 +97,10 @@ def generate_launch_description():
             arguments=[
                 '-entity', 'ssc_class_car',
                 '-file', sdf,
-                '-x', LaunchConfiguration('x'),
-                '-y', LaunchConfiguration('y'),
+                '-x', sx,
+                '-y', sy,
                 '-z', LaunchConfiguration('z'),
-                '-Y', LaunchConfiguration('yaw'),
+                '-Y', syaw,
             ],
         )]
     spawn_car = OpaqueFunction(function=make_spawn)
