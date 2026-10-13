@@ -34,9 +34,14 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ssc_class_car/meshes/hunter_description/chassis.dae</uri>
+            <uri>model://ssc_class_car/meshes/hunter_description/chassis.stl</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.55 0.55 0.57 1</ambient>
+          <diffuse>0.72 0.72 0.75 1</diffuse>
+          <specular>0.10 0.10 0.10 1</specular>
+        </material>
         <visibility_flags>1</visibility_flags>
       </visual>
       <visual name="base_link_fixed_joint_lump__back_box_visual_5">
@@ -156,9 +161,14 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ssc_class_car/meshes/hunter_description/front_left_wheel.dae</uri>
+            <uri>model://ssc_class_car/meshes/hunter_description/front_left_wheel.stl</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.02 0.02 0.02 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+        </material>
         <visibility_flags>1</visibility_flags>
       </visual>
     </link>
@@ -258,9 +268,14 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ssc_class_car/meshes/hunter_description/front_right_wheel.dae</uri>
+            <uri>model://ssc_class_car/meshes/hunter_description/front_right_wheel.stl</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.02 0.02 0.02 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+        </material>
         <visibility_flags>1</visibility_flags>
       </visual>
     </link>
@@ -327,9 +342,14 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ssc_class_car/meshes/hunter_description/rear_left_wheel.dae</uri>
+            <uri>model://ssc_class_car/meshes/hunter_description/rear_left_wheel.stl</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.02 0.02 0.02 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+        </material>
         <visibility_flags>1</visibility_flags>
       </visual>
     </link>
@@ -396,9 +416,14 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>model://ssc_class_car/meshes/hunter_description/rear_right_wheel.dae</uri>
+            <uri>model://ssc_class_car/meshes/hunter_description/rear_right_wheel.stl</uri>
           </mesh>
         </geometry>
+        <material>
+          <ambient>0.02 0.02 0.02 1</ambient>
+          <diffuse>0.05 0.05 0.05 1</diffuse>
+          <specular>0.05 0.05 0.05 1</specular>
+        </material>
         <visibility_flags>1</visibility_flags>
       </visual>
     </link>
@@ -457,8 +482,8 @@
         <camera name="front_rgb">
           <horizontal_fov>1.7453292519943295</horizontal_fov>
           <image>
-            <width>1280</width>
-            <height>720</height>
+            <width>800</width>
+            <height>450</height>
             <format>R8G8B8</format>
           </image>
           <clip>
@@ -581,7 +606,9 @@
     </joint>
     <!-- 2026-09-22 검증 반영: 뒷바퀴 조인트 effort 10→200·velocity 10→30·마찰 15→0.1, 조향 조인트 effort 10→50·velocity 1→3.
          원래 값으로는 토크 기반 ackermann 플러그인이 바퀴를 못 돌려 차가 6초에 1 cm 움직였다. max_speed 5→3 m/s (코스 주행감).
-         센서 <visualize>는 false — 720개 광선 시각화가 화면을 덮고 노트북 성능을 갉아먹는다. -->
+         센서 <visualize>는 false — 720개 광선 시각화가 화면을 덮고 노트북 성능을 갉아먹는다.
+         2026-10-13 메모리 절감: 카메라 1280x720 → 800x450 (주기 30 Hz 유지; 일부 해상도(640x360·640x480·960x540 실측)는 소프트웨어 GL(llvmpipe)에서 카메라가 0.3~0.6 Hz 로 급락하므로 피할 것; launch 인자 camera_width/height/fps 로 변경 가능),
+         차량 메시 DAE → 데시메이션한 바이너리 STL(색은 아래 <material> 로 지정). -->
     <plugin name="ackermann_drive" filename="libgazebo_ros_ackermann_drive.so">
       <ros>
         <remapping>cmd_vel:=cmd_vel</remapping>
