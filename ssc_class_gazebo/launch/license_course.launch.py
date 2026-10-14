@@ -7,6 +7,7 @@
     ros2 launch ssc_class_gazebo license_course.launch.py rviz:=true     # rviz2 함께
     ros2 launch ssc_class_gazebo license_course.launch.py software_gl:=true  # Gazebo 화면이 검거나 죽을 때만
     ros2 launch ssc_class_gazebo license_course.launch.py lidar_viz:=true    # Gazebo 안에 LiDAR 광선을 그린다 (6주차)
+    ros2 launch ssc_class_gazebo license_course_rip.launch.py                # 저메모리(rip) 월드 — 인자는 전부 동일
 
 토픽 (차량 스폰 후):
     구독  /cmd_vel            geometry_msgs/Twist   (linear.x 속도, angular.z 조향)
@@ -37,6 +38,9 @@ def generate_launch_description():
     # 출발선 좌표 (2026-09-22 확정): 시험장 출발 표시 위, -x 방향을 보고 선다
     # start:=right (7주차 이후 기본 사용): 도로 우측 포즈 — 조교 확정 좌표 (2026-10-13, automotive-sw-2026 week-07)
     args = [
+        # world / car_sdf 는 license_course_rip.launch.py 가 저메모리 월드·차량으로 바꿔 넣는 자리 — 직접 쓸 일은 드물다
+        DeclareLaunchArgument('world', default_value=world_path, description='월드 파일 경로'),
+        DeclareLaunchArgument('car_sdf', default_value=car_sdf, description='실습 차량 model.sdf 경로'),
         DeclareLaunchArgument('start', default_value='left',
                               description="출발 프리셋: left(기존, 왼쪽 연석 2.05 m) / right(도로 우측) — right면 x·y·yaw 인자 무시"),
         DeclareLaunchArgument('x', default_value='10.5379', description='spawn x [m]'),
@@ -67,16 +71,16 @@ def generate_launch_description():
         PythonLaunchDescriptionSource(os.path.join(
             get_package_share_directory('gazebo_ros'), 'launch', 'gazebo.launch.py')),
         launch_arguments={
-            'world': world_path,
+            'world': LaunchConfiguration('world'),
             'gui': LaunchConfiguration('gui'),
         }.items(),
     )
 
     def make_spawn(context):
         # lidar_viz:=true 면 model.sdf 의 LiDAR <visualize> 를 켠 사본을 만들어 스폰한다 (원본은 그대로)
-        sdf = car_sdf
+        sdf = LaunchConfiguration('car_sdf').perform(context)
         if LaunchConfiguration('lidar_viz').perform(context).lower() in ('true', '1'):
-            with open(car_sdf, encoding='utf-8') as fh:
+            with open(sdf, encoding='utf-8') as fh:
                 txt = fh.read()
             head, sep, tail = txt.partition('<sensor name="roof_lidar"')
             tail = tail.replace('<visualize>false</visualize>', '<visualize>true</visualize>', 1)
