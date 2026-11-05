@@ -32,5 +32,5 @@ def generate_launch_description():
             'car_sdf': os.path.join(pkg_share, 'models', 'ssc_class_car_rip', 'model.sdf'),
         }.items(),
     )
-    # start / x·y·yaw / gui / rviz / software_gl / lidar_viz 등 나머지 인자는 명령줄에서 그대로 전달된다
+    # start / x·y·yaw / gui / rviz / software_gl / lidar_viz / lidar_hz·camera_hz 등 나머지 인자는 명령줄에서 그대로 전달된다
     return LaunchDescription([base])
