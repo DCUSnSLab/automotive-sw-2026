@@ -5,7 +5,8 @@
     ros2 launch ssc_class_gazebo final_course.launch.py gui:=false      # 화면 없이
     ros2 launch ssc_class_gazebo final_course.launch.py x:=… y:=… yaw:=… start:=left   # 다른 출발점
     ros2 launch ssc_class_gazebo final_course.launch.py course:=$PWD/course.json        # 리더보드 코스 자료 그대로
-                                                                                         # (출발 자리·장애물)
+                                                                                         # (출발 자리·장애물·신호)
+    ros2 launch ssc_class_gazebo final_course.launch.py course:=… signal_offset:=0      # 신호 시작 시점을 고정 (기본 무작위)
 
 license_course_rip.launch.py 에 기본값만 바꿔 넘긴다. 인자는 license_course.launch.py 와 같다.
 채점 서버는 /ground_truth/odom 과 Gazebo 서비스를 학생 코드에 주지 않는다 — 연습할 때도 쓰지 말 것.
@@ -24,6 +25,7 @@ DEFAULTS = {
     'start': 'right',
     'gui': 'true',
     'course': '',
+    'signal_offset': '',
 }
 
 

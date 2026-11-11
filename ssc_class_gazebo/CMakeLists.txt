@@ -13,6 +13,7 @@ install(DIRECTORY
 
 install(PROGRAMS
   scripts/drive_bridge.py
+  scripts/signal_lights.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
