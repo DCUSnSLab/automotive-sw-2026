@@ -1,0 +1,12 @@
+{
+ "format": "ssc-course/1",
+ "frame": "월드 좌표 [m, rad]",
+ "key": "lane-practice",
+ "version": 1,
+ "name": "차선 주행 실습",
+ "description": "차선 주행 구간 앞(오른쪽 차로 중심)에서 출발 — 직선 20 m → 왼쪽 90° 곡선 → 남쪽 직선 약 11 m",
+ "world": "classroom_rip.world",
+ "spawn": {"x": -30.489, "y": 43.896, "yaw": -2.9744},
+ "obstacles": [],
+ "signals": []
+}
