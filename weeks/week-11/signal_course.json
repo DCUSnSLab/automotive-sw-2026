@@ -1,0 +1,14 @@
+{
+ "format": "ssc-course/1",
+ "frame": "월드 좌표 [m, rad]",
+ "key": "signal-practice",
+ "version": 1,
+ "name": "신호 인식 실습",
+ "description": "남쪽 도로에서 북쪽으로 직진 — 정지선 약 17 m 앞에서 출발, 정면 신호등 1개",
+ "world": "classroom_rip.world",
+ "spawn": {"x": -8.6, "y": -18.0, "yaw": 1.639},
+ "obstacles": [],
+ "signals": [
+  {"id": "traffic_light_03", "name": "북행 신호", "green_s": 12.0, "yellow_s": 3.0, "red_s": 12.0}
+ ]
+}
